@@ -5,9 +5,10 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.0.2
 
 * System dependencies
+    - postgresql
 
 * Configuration
 
@@ -21,4 +22,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Issues
+    [debase won't install with ruby 3.0.2](https://github.com/ruby-debug/debase/issues/94). This is needed for debugging. When fixed, run
+    ```zsh
+    bundle add debase --group development
+    ```
+
