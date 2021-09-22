@@ -1,0 +1,99 @@
+// https://dbdocs.io/docs
+
+Project Recipbook {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # For saving recipes, and making grocery lists
+    **markdown content here**
+  '''
+}
+Table items {
+    id int [pk]
+    name varchar [unique]
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table groceries {
+    id int [pk]
+    item int
+    need boolean
+    unit unit
+    qty int
+    description text 
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table item_locations {
+    id int [pk]
+    item int 
+    store store
+    section section
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table recipes {
+    id int [pk]
+    name varchar
+    description text
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table steps {
+    id int [pk]
+    recipe int
+    step int // [default: 1, increment]
+    description text
+    timer time
+    created_at timestamp
+    updated_at timestamp
+}
+
+Table ingredients {
+    id int [pk]
+    item int
+    step int
+    unit unit
+    qty int
+    created_at timestamp
+    updated_at timestamp
+}
+
+Enum unit {
+    tbsp
+    tsp
+    cups
+    oz
+    lbs
+    ml
+    l
+    g
+    kg
+}
+
+Enum store {
+    food_basics
+    produce_depot
+    bulk_barn
+    italian_store
+    persian_store
+    TandT
+}
+
+Enum section {
+    deli
+    produce
+    dairy
+    frozen
+}
+
+Ref: groceries.item > items.id 
+Ref: ingredients.item > items.id 
+Ref: item_locations.item > items.id
+
+Ref: steps.recipe > recipes.id 
+
+Ref: ingredients.step > steps.id
