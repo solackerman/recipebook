@@ -26,5 +26,6 @@ Things you may want to cover:
     [debase won't install with ruby 3.0.2](https://github.com/ruby-debug/debase/issues/94). This is needed for debugging. When fixed, run
     ```zsh
     bundle add debase --group development
+    bundle add ruby-debug-ide --group development
     ```
 
