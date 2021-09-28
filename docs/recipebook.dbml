@@ -7,16 +7,10 @@ Project Recipbook {
     **markdown content here**
   '''
 }
-Table items {
+
+Table grocery_items {
     id int [pk]
     name varchar [unique]
-    created_at timestamp
-    updated_at timestamp
-}
-
-Table groceries {
-    id int [pk]
-    item int
     need boolean
     unit unit
     qty int
@@ -27,7 +21,7 @@ Table groceries {
 
 Table item_locations {
     id int [pk]
-    item int 
+    grocery_item int 
     store store
     section section
     created_at timestamp
@@ -38,6 +32,7 @@ Table recipes {
     id int [pk]
     name varchar
     description text
+    num_servings int
     created_at timestamp
     updated_at timestamp
 }
@@ -54,7 +49,7 @@ Table steps {
 
 Table ingredients {
     id int [pk]
-    item int
+    grocery_item int
     step int
     unit unit
     qty int
@@ -90,9 +85,8 @@ Enum section {
     frozen
 }
 
-Ref: groceries.item > items.id 
-Ref: ingredients.item > items.id 
-Ref: item_locations.item > items.id
+Ref: ingredients.grocery_item > grocery_items.id 
+Ref: item_locations.grocery_item > grocery_items.id
 
 Ref: steps.recipe > recipes.id 
 
