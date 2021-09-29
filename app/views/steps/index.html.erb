@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Recipe</th>
-      <th>Step</th>
+      <th>Number</th>
       <th>Description</th>
       <th>Timer</th>
       <th colspan="3"></th>
@@ -17,7 +17,7 @@
     <% @steps.each do |step| %>
       <tr>
         <td><%= step.recipe_id %></td>
-        <td><%= step.step %></td>
+        <td><%= step.number %></td>
         <td><%= step.description %></td>
         <td><%= step.timer %></td>
         <td><%= link_to 'Show', step %></td>

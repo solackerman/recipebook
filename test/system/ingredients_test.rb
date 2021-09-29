@@ -14,7 +14,7 @@ class IngredientsTest < ApplicationSystemTestCase
     visit ingredients_url
     click_on "New Ingredient"
 
-    fill_in "Item", with: @ingredient.item_id
+    fill_in "Grocery item", with: @ingredient.grocery_item_id
     fill_in "Qty", with: @ingredient.qty
     fill_in "Step", with: @ingredient.step_id
     fill_in "Unit", with: @ingredient.unit
@@ -28,7 +28,7 @@ class IngredientsTest < ApplicationSystemTestCase
     visit ingredients_url
     click_on "Edit", match: :first
 
-    fill_in "Item", with: @ingredient.item_id
+    fill_in "Grocery item", with: @ingredient.grocery_item_id
     fill_in "Qty", with: @ingredient.qty
     fill_in "Step", with: @ingredient.step_id
     fill_in "Unit", with: @ingredient.unit

@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Item</th>
+      <th>Grocery item</th>
       <th>Step</th>
       <th>Unit</th>
       <th>Qty</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
-        <td><%= ingredient.item_id %></td>
+        <td><%= ingredient.grocery_item_id %></td>
         <td><%= ingredient.step_id %></td>
         <td><%= ingredient.unit %></td>
         <td><%= ingredient.qty %></td>

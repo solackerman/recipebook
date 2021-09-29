@@ -17,7 +17,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ingredient" do
     assert_difference('Ingredient.count') do
-      post ingredients_url, params: { ingredient: { item_id: @ingredient.item_id, qty: @ingredient.qty, step_id: @ingredient.step_id, unit: @ingredient.unit } }
+      post ingredients_url, params: { ingredient: { grocery_item_id: @ingredient.grocery_item_id, qty: @ingredient.qty, step_id: @ingredient.step_id, unit: @ingredient.unit } }
     end
 
     assert_redirected_to ingredient_url(Ingredient.last)
@@ -34,7 +34,7 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ingredient" do
-    patch ingredient_url(@ingredient), params: { ingredient: { item_id: @ingredient.item_id, qty: @ingredient.qty, step_id: @ingredient.step_id, unit: @ingredient.unit } }
+    patch ingredient_url(@ingredient), params: { ingredient: { grocery_item_id: @ingredient.grocery_item_id, qty: @ingredient.qty, step_id: @ingredient.step_id, unit: @ingredient.unit } }
     assert_redirected_to ingredient_url(@ingredient)
   end
 

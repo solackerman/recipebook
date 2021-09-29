@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_09_23_153919) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "grocery_items", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "need"
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_09_23_153919) do
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.integer "grocery_item_id", null: false
-    t.integer "step_id", null: false
+    t.bigint "grocery_item_id", null: false
+    t.bigint "step_id", null: false
     t.string "unit"
     t.integer "qty", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_153919) do
   end
 
   create_table "item_locations", force: :cascade do |t|
-    t.integer "grocery_item_id", null: false
+    t.bigint "grocery_item_id", null: false
     t.string "store"
     t.string "section"
     t.datetime "created_at", precision: 6, null: false
@@ -53,13 +56,13 @@ ActiveRecord::Schema.define(version: 2021_09_23_153919) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.integer "recipe_id", null: false
+    t.bigint "recipe_id", null: false
     t.integer "number", default: 1, null: false
     t.text "description"
     t.time "timer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"recipe\", \"number\"", name: "index_steps_on_recipe_and_number", unique: true
+    t.index ["recipe_id", "number"], name: "index_steps_on_recipe_id_and_number", unique: true
     t.index ["recipe_id"], name: "index_steps_on_recipe_id"
   end
 

@@ -17,9 +17,9 @@ class GroceryItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create grocery_item" do
     assert_difference('GroceryItem.count') do
-      post grocery_items_url, params: { grocery_item: { description: @grocery_item.description, name: @grocery_item.name, need: @grocery_item.need, qty: @grocery_item.qty, unit: @grocery_item.unit } }
+      post grocery_items_url, params: { grocery_item: { description: @grocery_item.description, name: 'Cheese', need: @grocery_item.need, qty: @grocery_item.qty, unit: @grocery_item.unit } }
     end
-
+    
     assert_redirected_to grocery_item_url(GroceryItem.last)
   end
 
@@ -39,6 +39,9 @@ class GroceryItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy grocery_item" do
+    # Ingredient.delete_all
+    # Step.destroy_all
+    Recipe.destroy_all
     assert_difference('GroceryItem.count', -1) do
       delete grocery_item_url(@grocery_item)
     end

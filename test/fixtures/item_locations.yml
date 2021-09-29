@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  item: one
+  grocery_item: one
   store: MyString
   section: MyString
 
 two:
-  item: two
+  grocery_item: two
   store: MyString
   section: MyString

@@ -7,8 +7,7 @@ class CreateSteps < ActiveRecord::Migration[6.1]
       t.time :timer
 
       t.timestamps
-
-      t.index %i[recipe_id number], unique: true
     end
+    add_index :steps, %i[recipe_id number], unique: true
   end
 end
