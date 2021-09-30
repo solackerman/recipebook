@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_153919) do
     t.integer "qty", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["grocery_item_id", "step_id"], name: "index_ingredients_on_grocery_item_id_and_step_id", unique: true
     t.index ["grocery_item_id"], name: "index_ingredients_on_grocery_item_id"
     t.index ["step_id"], name: "index_ingredients_on_step_id"
   end

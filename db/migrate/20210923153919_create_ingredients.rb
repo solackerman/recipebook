@@ -8,5 +8,6 @@ class CreateIngredients < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :ingredients, %i[grocery_item_id step_id], unique: true
   end
 end
