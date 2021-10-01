@@ -1,2 +1,5 @@
-json.extract! grocery_item, :id, :name, :need, :unit, :qty, :description, :created_at, :updated_at
+json.extract! grocery_item, :id, :name, :need, :unit, :qty, :description
+json.item_locations do
+  json.array! grocery_item.item_locations, partial: 'item_locations/item_location', as: :item_location
+end
 json.url grocery_item_url(grocery_item, format: :json)
