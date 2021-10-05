@@ -1,4 +1,5 @@
 class GroceryItemsController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_grocery_item, only: %i[ show edit update destroy ]
 
   # GET /grocery_items or /grocery_items.json
@@ -57,13 +58,15 @@ class GroceryItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_grocery_item
-      @grocery_item = GroceryItem.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def grocery_item_params
-      params.require(:grocery_item).permit(:name, :need, :unit, :qty, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_grocery_item
+    @grocery_item = GroceryItem.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def grocery_item_params
+    params.require(:grocery_item)
+          .permit(:name, :need, :unit, :qty, :description, item_locations_attributes: %i[store section])
+  end
 end
