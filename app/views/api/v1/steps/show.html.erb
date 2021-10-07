@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @step.recipe_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @step.number %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @step.description %>
+</p>
+
+<p>
+  <strong>Timer:</strong>
+  <%= @step.timer %>
+</p>
+
+<%= link_to 'Edit', edit_api_v1_step_path(@step) %> |
+<%= link_to 'Back', api_v1_steps_path %>

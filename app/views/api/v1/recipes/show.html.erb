@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <strong>Num servings:</strong>
+  <%= @recipe.num_servings %>
+</p>
+
+<%= link_to 'Edit', edit_api_v1_recipe_path(@recipe) %> |
+<%= link_to 'Back', api_v1_recipes_path %>
