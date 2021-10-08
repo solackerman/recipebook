@@ -1,1 +1,1 @@
-json.partial! "ingredients/ingredient", ingredient: @ingredient
+json.partial! "api/v1/ingredients/ingredient", ingredient: @ingredient

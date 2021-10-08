@@ -1,1 +1,1 @@
-json.array! @ingredients, partial: "ingredients/ingredient", as: :ingredient
+json.array! @ingredients, partial: "api/v1/ingredients/ingredient", as: :ingredient
